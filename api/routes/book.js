@@ -19,13 +19,13 @@ router.get('/', async (req, res) => {
   const dbConnect = dbo.getDb();
   let results = await dbConnect
     .collection(COLLECTION)
-    .find(query)
+    .find(query, {projection: {title: 1}})
     .sort({_id: -1})
     .limit(limit)
     .toArray()
     .catch(err => res.status(400).send('Error searching for books'));
   next = results.length == limit ? results[results.length - 1]._id : null;
-  res.json({results, next}).status(200);
+  res.json({results: results.map(book => book.title), next}).status(200);
 });
 
 //getBookById()

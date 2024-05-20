@@ -1,18 +1,18 @@
 # Soluciones al problema 2
 
 ## Apartado 1
-
+db.listingsAndReviews.aggregate([{$group: {_id: null, max_reviews: {$max: "$number_of_reviews"}, name: {$first: "$name"}}}])
 
 
 ## Apartado 2
-
+db.listingsAndReviews.aggregate([{$group: {_id: null, max_amenities: {$max: {$size: "$amenities"}}, name: {$first: "$name"}}}])
 
 
 ## Apartado 3
-
+db.listingsAndReviews.aggregate([{$group: {_id: "$property_type", "count": {"$sum": 1}}}])
 
 
 ## Apartado 4
-
+db.listingsAndReviews.aggregate([{$match: {beds: {$in: [2, 3, 4, 5]}}}, {$group: {_id: null, count: {$sum: 1}}}])
 
 
