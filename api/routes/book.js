@@ -19,13 +19,13 @@ router.get('/', async (req, res) => {
   const dbConnect = dbo.getDb();
   let results = await dbConnect
     .collection(COLLECTION)
-    .find(query, {projection: {title: 1}})
+    .find(query, {projection: {isbn: 1, title: 1, author: 1}})
     .sort({_id: -1})
     .limit(limit)
     .toArray()
     .catch(err => res.status(400).send('Error searching for books'));
   next = results.length == limit ? results[results.length - 1]._id : null;
-  res.json({results: results.map(book => book.title), next}).status(200);
+  res.json({results: results.map(book => ({_id: book._id, title: book.title, author: book.author, link: "localhost:3010/api/v2/book/"+book._id})), next}).status(200);
 });
 
 //getBookById()
@@ -59,7 +59,11 @@ router.delete('/:id', async (req, res) => {
   let result = await dbConnect
     .collection(COLLECTION)
     .deleteOne(query);
-  res.status(200).send(result);
+  if (result.deletedCount === 0){
+    res.status(400).send("Invalid book ID");
+  } else {
+    res.status(200).send(result);
+  }
 });
 
 module.exports = router;

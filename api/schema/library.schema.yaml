@@ -111,10 +111,14 @@ components:
         author:
           type: string
           description: Book author
+        link:
+          type: string
+          description: Link to book
       required:
         - _id
         - title
         - author
+        - link
     Book:
       # TODO
     ID:
