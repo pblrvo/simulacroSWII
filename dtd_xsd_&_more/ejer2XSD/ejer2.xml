@@ -1,0 +1,9 @@
+<Orderdetails>
+    <Customer id=217539152>
+        <fname from="Madrid"/>
+        <cname>Alvaro</cname>
+        <destination Country="Spain" Delivdate="04-06-24"/>
+        <email>alvaro@gmail.com</email>
+        <eid>eid</eid>
+    </Customer>
+</Orderdetails>
