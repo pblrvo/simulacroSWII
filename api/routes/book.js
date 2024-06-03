@@ -19,13 +19,17 @@ router.get('/', async (req, res) => {
   const dbConnect = dbo.getDb();
   let results = await dbConnect
     .collection(COLLECTION)
-    .find(query, {projection: {isbn: 1, title: 1, author: 1}})
+    .find(query)
+    .project({title: 1, author: 1})
     .sort({_id: -1})
     .limit(limit)
     .toArray()
     .catch(err => res.status(400).send('Error searching for books'));
+  results.forEach(book => {
+    book["link"] = `localhost:${process.env.PORT}${process.env.BASE_URI}/book/${book._id}`
+  })
   next = results.length == limit ? results[results.length - 1]._id : null;
-  res.json({results: results.map(book => ({_id: book._id, title: book.title, author: book.author, link: "localhost:3010/api/v2/book/"+book._id})), next}).status(200);
+  res.json({results, next}).status(200);
 });
 
 //getBookById()
