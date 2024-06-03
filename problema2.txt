@@ -1,7 +1,7 @@
 # Soluciones al problema 2
 
 ## Apartado 1
-db.listingsAndReviews.aggregate([{$group: {_id: null, max_reviews: {$max: "$number_of_reviews"}, name: {$first: "$name"}}}])
+db.listingsAndReviews.find({}, {name: 1, number_of_reviews: 1, _id: 0}).sort({number_of_reviews: -1}).limit(1)
 
 
 ## Apartado 2
