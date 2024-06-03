@@ -1,0 +1,12 @@
+<!DOCTYPE articles [
+    <!ELEMENT article (name, month, author+, reviews*, feedback)>
+    <!ELEMENT name (#PCDATA)>
+    <!ELEMENT month (#PCDATA)>
+    <!ELEMENT author (#PCDATA)>
+    <!ELEMENT reviews (#PCDATA)>
+    <!ELEMENT feedback (#PCDATA)>
+
+    <!ATTLIST article id ID #REQUIRED>
+    <!ATTLIST author name CDATA #REQUIRED>
+    <!ATTLIST reviews lang CDATA #IMPLIED>
+]>
