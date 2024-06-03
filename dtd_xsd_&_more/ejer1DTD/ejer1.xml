@@ -1,0 +1,13 @@
+<TVSCHEDULE NAME='MTV-TVSCHEDULE'>
+    <CHANNEL CHAN='MTV'>
+        <BANNER> Esto es un banner </BANNER>
+        <DAY>
+            <DATE> 10-12-2001</DATE>
+            <HOLIDAY>Christmas</HOLIDAY>
+            <PROGRAMSLOT VTR=''>
+                <TIME>11am</TIME>
+                <TITLE RATING='R' LANGUAGE='ENG'> MATRIX </TITLE>
+                <DESCRIPTION> NEO vs MR SMITH </DESCRIPTION>
+            </PROGRAMSLOT>
+        </DAY>
+    </CHANNEL>
