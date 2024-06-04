@@ -1,19 +1,19 @@
-<items>
-    <item>
+<Items>
+    <Item>
         <name>Item 1</name>
         <photo>http://example.com/photo1.png</photo>
         <tags>Tag1, Tag2</tags>
         <diameter>32</diameter>
-        <weight>540</weight>
+        <weight>200</weight>
         <price>60</price>
         <size>Big</size>
-    </item>
-    <item>
+    </Item>
+    <Item>
         <name>Item 2</name>
         <photo>http://example.com/photo2.jpg</photo>
         <tags>Tag1</tags>
         <diameter>23</diameter>
-        <weight>340</weight>
-        <price>50.1</price>
-    </item>
-</items>
+        <weight>240</weight>
+        <price>50</price>
+    </Item>
+</Items>

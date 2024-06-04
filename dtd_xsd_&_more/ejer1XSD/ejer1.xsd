@@ -3,18 +3,25 @@
     <xs:element name="Items">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="name" type="xs:string"/>
-                <xs:element name="photo" type="xs:string"/>
-                <xs:element name="tags" type="xs:string"/>
-                <xs:element name="diameter" type="xs:number/">
-                <xs:element name="price" type="xs:number"/>
-                <xs:element name="size">
-                    <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                            <xs:enumaration value="Big"/>
-                            <xs:enumaration value="Small"/>
-                        </xs:restriction>
-                    </xs:simpleType>
+                <xs:element maxOccurs="unbounded" name="Item">
+        	        <xs:complexType>
+                	    <xs:sequence>
+                        	<xs:element name="name" type="xs:string"/>
+                        	<xs:element name="photo" type="xs:string"/>
+                        	<xs:element name="tags" type="xs:string"/>
+                        	<xs:element name="diameter" type="xs:unsignedByte"/>
+                          	<xs:element name="weight" type="xs:unsignedByte"/>
+                        	<xs:element name="price" type="xs:unsignedByte"/>
+                        	<xs:element minOccurs="0" name="size">
+                            	<xs:simpleType>
+                                	<xs:restriction base="xs:string">
+                                    	<xs:enumeration value="Big"/>
+                                    	<xs:enumeration value="Small"/>
+                                	</xs:restriction>
+                            	</xs:simpleType>
+                        	</xs:element>
+           	    	    </xs:sequence>
+                    </xs:complexType>
                 </xs:element>
             </xs:sequence>
         </xs:complexType>
