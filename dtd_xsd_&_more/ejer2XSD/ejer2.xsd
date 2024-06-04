@@ -14,12 +14,8 @@
                             <xs:element minOccurs="0" name="cname" type="xs:string" />
                             <xs:element name="destination">
                                 <xs:complexType>
-                                    <xs:simpleContent>
-                                        <xs:extension base="xs:string">
                                             <xs:attribute name="Country" type="xs:string" use="required" />
                                             <xs:attribute name="Delivdate" type="xs:string" use="required" />
-                                        </xs:extension>
-                                    </xs:simpleContent>
                                 </xs:complexType>
                             </xs:element>
                             <xs:element minOccurs="0" name="email" type="xs:string" />
